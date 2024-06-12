@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcmuxd7k1emms"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_tlltn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tbayw"]
+
+[sub_resource type="Skin" id="Skin_uh0ly"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ccxph"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s10x4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0y0di"]
+
+[node name="Littleroot Town" type="Node3D"]
+
+[node name="map" type="Node3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="map"]
+mesh = SubResource("BoxMesh_tbayw")
+skin = SubResource("Skin_uh0ly")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="map"]
+shape = SubResource("BoxShape3D_ccxph")
+
+[node name="player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("1_tlltn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player"]
+mesh = SubResource("CapsuleMesh_s10x4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
+shape = SubResource("CapsuleShape3D_0y0di")
+
+[node name="pivotCamera" type="Node3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4, 6)
+
+[node name="Camera3D" type="Camera3D" parent="player/pivotCamera"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.5, 7.57103e-08, -0.433013, 0.75, 0.5, -0.25, 0.433013, -0.866025, 0, 15, -50)
+light_color = Color(1, 0.215686, 0, 1)
+light_energy = 0.3
+shadow_enabled = true
