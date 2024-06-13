@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cto8gep0tvya5"
-path.s3tc="res://.godot/imported/Ethan spritesheet.png-5a47ab3c405f9dbb2e51fa1de2283c84.s3tc.ctex"
+uid="uid://bwijk3c6epc8j"
+path.s3tc="res://.godot/imported/tex1_128x128_B51E373CFFA2D89C_12.png-22125500771ed97e4e8dd55678e52999.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Ethan spritesheet.png"
-dest_files=["res://.godot/imported/Ethan spritesheet.png-5a47ab3c405f9dbb2e51fa1de2283c84.s3tc.ctex"]
+source_file="res://assets/imgs/tex1_128x128_B51E373CFFA2D89C_12.png"
+dest_files=["res://.godot/imported/tex1_128x128_B51E373CFFA2D89C_12.png-22125500771ed97e4e8dd55678e52999.s3tc.ctex"]
 
 [params]
 

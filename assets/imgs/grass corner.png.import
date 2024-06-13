@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cto8gep0tvya5"
-path.s3tc="res://.godot/imported/Ethan spritesheet.png-5a47ab3c405f9dbb2e51fa1de2283c84.s3tc.ctex"
+uid="uid://b16a0lvehckgc"
+path.s3tc="res://.godot/imported/grass corner.png-53cc703d1d52e50bc4ca4441a20408ab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Ethan spritesheet.png"
-dest_files=["res://.godot/imported/Ethan spritesheet.png-5a47ab3c405f9dbb2e51fa1de2283c84.s3tc.ctex"]
+source_file="res://assets/imgs/grass corner.png"
+dest_files=["res://.godot/imported/grass corner.png-53cc703d1d52e50bc4ca4441a20408ab.s3tc.ctex"]
 
 [params]
 

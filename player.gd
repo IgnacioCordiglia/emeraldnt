@@ -9,10 +9,10 @@ var facing = 0
 func _physics_process(delta):
 	var isRunning
 	if Input.is_action_pressed("running"):
-		SPEED = 35.0
+		SPEED = 18.0
 		isRunning = 1
 	else: 
-		SPEED = 15.0 
+		SPEED = 10.0 
 		isRunning = 0
 	
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -23,6 +23,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		isRunning = 0
 
 	var directionV2 = Vector2(direction.x,direction.z)
 	handle_movement_animation(directionV2, isRunning)
@@ -34,7 +35,11 @@ func handle_movement_animation(direction, running):
 	if direction == Vector2(0,0) && $AnimationPlayer.is_playing() == true:
 		$AnimationPlayer.stop()
 		animationFrame = 1
-	else: $AnimationPlayer.play("walk")
+	
+	if running == 1: 
+		$AnimationPlayer.play("run")
+	elif running == 0:
+		$AnimationPlayer.play("walk")
 	
 	if direction.y  > 0: #Abajo
 		facing = 0
@@ -47,5 +52,4 @@ func handle_movement_animation(direction, running):
 	
 	const FRAMES = 3
 	
-	print(animationFrame + (facing * FRAMES) + (running*11))
 	$Sprite3D.frame = animationFrame + (facing * FRAMES) + (running*12)
