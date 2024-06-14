@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dopolhhyfk2no"
-path.s3tc="res://.godot/imported/tex1_128x128_49C21C77C7BB9038_12.png-29b690df98abb0a199356afa05f3421f.s3tc.ctex"
+uid="uid://1bk04mt6g2lt"
+path.s3tc="res://.godot/imported/littleroot_house_roof_short.png-b7c8bc74efc597a21e21dd0a32cee43e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "097e6d8a6d6869eb848ffb7578c5bc0c"
+}
 
 [deps]
 
-source_file="res://assets/imgs/tex1_128x128_49C21C77C7BB9038_12.png"
-dest_files=["res://.godot/imported/tex1_128x128_49C21C77C7BB9038_12.png-29b690df98abb0a199356afa05f3421f.s3tc.ctex"]
+source_file="res://assets/models/littleroot_house_roof_short.png"
+dest_files=["res://.godot/imported/littleroot_house_roof_short.png-b7c8bc74efc597a21e21dd0a32cee43e.s3tc.ctex"]
 
 [params]
 

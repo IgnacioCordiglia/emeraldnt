@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dopolhhyfk2no"
-path.s3tc="res://.godot/imported/tex1_128x128_49C21C77C7BB9038_12.png-29b690df98abb0a199356afa05f3421f.s3tc.ctex"
+uid="uid://cm5fppjch5ucj"
+path.s3tc="res://.godot/imported/littleroot_house_door.png-d21640fc8eafff2756460677103ab178.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "002679da2bb8815c7ae10a1ec789405b"
+}
 
 [deps]
 
-source_file="res://assets/imgs/tex1_128x128_49C21C77C7BB9038_12.png"
-dest_files=["res://.godot/imported/tex1_128x128_49C21C77C7BB9038_12.png-29b690df98abb0a199356afa05f3421f.s3tc.ctex"]
+source_file="res://assets/models/littleroot_house_door.png"
+dest_files=["res://.godot/imported/littleroot_house_door.png-d21640fc8eafff2756460677103ab178.s3tc.ctex"]
 
 [params]
 

@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dopolhhyfk2no"
-path.s3tc="res://.godot/imported/tex1_128x128_49C21C77C7BB9038_12.png-29b690df98abb0a199356afa05f3421f.s3tc.ctex"
+uid="uid://ccefhrbbmkpei"
+path.s3tc="res://.godot/imported/littleroot_house_first_floor_wall.png-6cb81a0a9fd80dc9c3f2c0b794b164c4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "9d816adadf2530dd444e332b57ca060c"
+}
 
 [deps]
 
-source_file="res://assets/imgs/tex1_128x128_49C21C77C7BB9038_12.png"
-dest_files=["res://.godot/imported/tex1_128x128_49C21C77C7BB9038_12.png-29b690df98abb0a199356afa05f3421f.s3tc.ctex"]
+source_file="res://assets/models/littleroot_house_first_floor_wall.png"
+dest_files=["res://.godot/imported/littleroot_house_first_floor_wall.png-6cb81a0a9fd80dc9c3f2c0b794b164c4.s3tc.ctex"]
 
 [params]
 
