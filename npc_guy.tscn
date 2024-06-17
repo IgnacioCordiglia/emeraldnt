@@ -1,11 +1,21 @@
-[gd_scene load_steps=15 format=3 uid="uid://3slu4glsqqk5"]
+[gd_scene load_steps=19 format=3 uid="uid://3slu4glsqqk5"]
 
 [ext_resource type="Script" path="res://interactableNPC.gd" id="1_ndmvo"]
+[ext_resource type="Script" path="res://DialogueBox.gd" id="2_oqt7i"]
 [ext_resource type="Texture2D" uid="uid://cvj0puxjnsv4g" path="res://assets/guy.png" id="2_t7a30"]
+[ext_resource type="PackedScene" uid="uid://cvcbbrjyw448w" path="res://dialogue_box.tscn" id="4_gcuej"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vetqn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj5vm"]
 atlas = ExtResource("2_t7a30")
 region = Rect2(960, 472, 480, 472)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_027ro"]
+atlas = ExtResource("2_t7a30")
+region = Rect2(0, 0, 480, 472)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxp8e"]
+atlas = ExtResource("2_t7a30")
+region = Rect2(0, 944, 480, 472)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxnni"]
 atlas = ExtResource("2_t7a30")
@@ -47,10 +57,26 @@ region = Rect2(0, 1416, 480, 472)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vetqn")
+"texture": SubResource("AtlasTexture_uj5vm")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_027ro")
+}],
+"loop": true,
+"name": &"idleBackwards",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxp8e")
+}],
+"loop": true,
+"name": &"idleSideways",
 "speed": 5.0
 }, {
 "frames": [{
@@ -115,22 +141,22 @@ script = ExtResource("1_ndmvo")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+script = ExtResource("2_oqt7i")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 gi_mode = 2
 billboard = 1
 shaded = true
-no_depth_test = true
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_db5ww")
-animation = &"walkBackwards"
-frame = 3
-frame_progress = 0.183026
+animation = &"idleSideways"
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="AnimatedSprite3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatedSprite3D/CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_elw84")
+
+[node name="DialogueBox" parent="." instance=ExtResource("4_gcuej")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

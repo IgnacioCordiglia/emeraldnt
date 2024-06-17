@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcmuxd7k1emms"]
+[gd_scene load_steps=14 format=3 uid="uid://bcmuxd7k1emms"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tlltn"]
 [ext_resource type="Texture2D" uid="uid://cto8gep0tvya5" path="res://assets/Ethan spritesheet.png" id="2_tbw4s"]
 [ext_resource type="MeshLibrary" uid="uid://ymmnyrtn4q65" path="res://grassLittleroot.tres" id="4_asnur"]
 [ext_resource type="PackedScene" uid="uid://biavbj0bg1vxm" path="res://assets/models/littleroot_house.glb" id="4_nsyed"]
+[ext_resource type="Script" path="res://DialogueBox.gd" id="4_vvfl8"]
 [ext_resource type="PackedScene" uid="uid://fnye7t7yxe02" path="res://flower.tscn" id="5_tr8j4"]
 [ext_resource type="PackedScene" uid="uid://dldwj6mk3h8d3" path="res://tree.tscn" id="6_r1qnb"]
 [ext_resource type="PackedScene" uid="uid://3slu4glsqqk5" path="res://npc_guy.tscn" id="7_i8tfv"]
@@ -113,6 +114,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="flowers" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.116, 2.2, 3.617)
+script = ExtResource("4_vvfl8")
 
 [node name="flower" parent="flowers" instance=ExtResource("5_tr8j4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.884, -1.7, -2.617)
@@ -272,4 +274,4 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
 
 [node name="NPC_guy" parent="." instance=ExtResource("7_i8tfv")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 16, 1, 5)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 16, 1.25, 4.975)
