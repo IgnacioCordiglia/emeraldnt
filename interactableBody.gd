@@ -9,4 +9,7 @@ func inRangeToInteract():
 
 func noLongerInRange():
 	nodo.noLongerInRange()
+	
+func interactedWith():
+	nodo.interactedWith()
 

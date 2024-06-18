@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://3slu4glsqqk5"]
+[gd_scene load_steps=30 format=3 uid="uid://3slu4glsqqk5"]
 
 [ext_resource type="Script" path="res://interactableNPC.gd" id="1_ndmvo"]
 [ext_resource type="Texture2D" uid="uid://cvj0puxjnsv4g" path="res://assets/guy.png" id="2_t7a30"]
@@ -135,20 +135,87 @@ animations = [{
 radius = 1.55769
 height = 4.39337
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f34jc"]
+atlas = ExtResource("4_1r4ij")
+region = Rect2(0, 0, 405, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8e2v"]
+atlas = ExtResource("4_1r4ij")
+region = Rect2(405, 0, 405, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enqyk"]
+atlas = ExtResource("4_1r4ij")
+region = Rect2(810, 0, 405, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yqk6"]
+atlas = ExtResource("4_1r4ij")
+region = Rect2(1215, 0, 405, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hnyj"]
+atlas = ExtResource("4_1r4ij")
+region = Rect2(1620, 0, 405, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yh1y"]
+atlas = ExtResource("4_1r4ij")
+region = Rect2(1620, 0, 405, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iddd6"]
+atlas = ExtResource("4_1r4ij")
+region = Rect2(1215, 0, 405, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13rfr"]
+atlas = ExtResource("4_1r4ij")
+region = Rect2(810, 0, 405, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uya0a"]
+atlas = ExtResource("4_1r4ij")
+region = Rect2(405, 0, 405, 390)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhfkp"]
+atlas = ExtResource("4_1r4ij")
+region = Rect2(0, 0, 405, 390)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_re5d6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_1r4ij")
-}],
-"loop": true,
-"name": &"appear",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_f34jc")
 }, {
-"frames": [],
-"loop": true,
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8e2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enqyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yqk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hnyj")
+}],
+"loop": false,
+"name": &"appear",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yh1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iddd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13rfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uya0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhfkp")
+}],
+"loop": false,
 "name": &"disappear",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [node name="NPC_guy" type="Node3D"]
@@ -174,9 +241,11 @@ script = ExtResource("3_37xxb")
 shape = SubResource("CapsuleShape3D_elw84")
 
 [node name="interactableBox" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 3, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 3.5, 0)
+billboard = 2
 shaded = true
+texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_re5d6")
-animation = &"disappear"
+animation = &"appear"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -4,19 +4,23 @@ extends CharacterBody3D
 var SPEED
 var direction
 var facing = 0
-var inRangeToInteractWith : detectableBody = null
+var canInteract : bool = false
+var bodyInRangeToInteractWith : detectableBody = null
 @onready var raycast : RayCast3D = $RayCast3D
 
 func _physics_process(delta):
 	var isRunning
 	
-	print(raycast.get_collider())
-	if raycast.is_colliding():
-		inRangeToInteractWith = raycast.get_collider()
-		inInteractionRange(inRangeToInteractWith)
-	elif !raycast.is_colliding() && inRangeToInteractWith != null:
+	if raycast.is_colliding() && bodyInRangeToInteractWith == null && raycast.get_collider().get_class() == "CharacterBody3D" :
+		bodyInRangeToInteractWith = raycast.get_collider()
+		inInteractionRange(bodyInRangeToInteractWith)
+		canInteract = true
+	elif !raycast.is_colliding() && bodyInRangeToInteractWith != null:
 		noLongerInInteractionRange()
+		canInteract = false
 		
+	if(canInteract && Input.is_action_pressed("interact")):
+		interact(bodyInRangeToInteractWith)
 		
 	if Input.is_action_pressed("running"):
 		SPEED = 18.0
@@ -38,14 +42,6 @@ func _physics_process(delta):
 	var directionV2 = Vector2(direction.x,direction.z)
 	handle_movement_animation(directionV2, isRunning)
 	move_and_slide()
-
-
-func inInteractionRange(collider : detectableBody) :
-	collider.inRangeToInteract()
-	
-func noLongerInInteractionRange() :
-	inRangeToInteractWith.noLongerInRange()
-	inRangeToInteractWith = null
 
 func handle_movement_animation(direction, running):
 	
@@ -70,3 +66,14 @@ func handle_movement_animation(direction, running):
 	const FRAMES = 3
 	
 	$Sprite3D.frame = animationFrame + (facing * FRAMES) + (running*12)
+	
+	
+func inInteractionRange(collider : detectableBody) :
+	collider.inRangeToInteract()
+	
+func noLongerInInteractionRange() :
+	bodyInRangeToInteractWith.noLongerInRange()
+	bodyInRangeToInteractWith = null
+	
+func interact(collider : detectableBody):
+	collider.interactedWith()

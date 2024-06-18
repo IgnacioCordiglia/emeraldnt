@@ -12,6 +12,8 @@ const speed = 3
 var currentState = IDLE
 var dir = Vector3.FORWARD
 var startPos
+@onready var characterAnimations : AnimatedSprite3D = $body
+@onready var speechBubbleAnimation : AnimatedSprite3D = $interactableBox
 
 func _ready():
 	randomize()
@@ -63,38 +65,40 @@ func choose(array):
 func handleIdleAnimation(dire):
 	match dire:
 		Vector3.LEFT:
-			$body.play("idleSideways")
-			$body.flip_h = false
+			characterAnimations.play("idleSideways")
+			characterAnimations.flip_h = false
 		Vector3.RIGHT:
-			$body.play("idleSideways")
-			$body.flip_h = true
+			characterAnimations.play("idleSideways")
+			characterAnimations.flip_h = true
 		Vector3.BACK:
-			$body.play("idle")
+			characterAnimations.play("idle")
 		Vector3.FORWARD:
-			$body.play("idleBackwards")
+			characterAnimations.play("idleBackwards")
 
 func handleWalkingAnimation(dire):
 	match dire:
 		Vector3.LEFT:
-			$body.play("walkSideways")
-			$body.flip_h = false
+			characterAnimations.play("walkSideways")
+			characterAnimations.flip_h = false
 		Vector3.RIGHT:
-			$body.play("walkSideways")
-			$body.flip_h = true
+			characterAnimations.play("walkSideways")
+			characterAnimations.flip_h = true
 		Vector3.BACK:
-			$body.play("walk")
+			characterAnimations.play("walk")
 		Vector3.FORWARD:
-			$body.play("walkBackwards")
+			characterAnimations.play("walkBackwards")
 
 func _on_timer_timeout():
 	$Timer.wait_time = 1
 	currentState = choose([IDLE, NEW_DIR, MOVE])
 	
-	
 func inRangeToInteract():
-	$interactableBox.visible = true
-	$interactableBox.play("appear")
+	speechBubbleAnimation.visible = true
+	speechBubbleAnimation.play("appear")
 	
 func noLongerInRange():
-	$interactableBox.visible = false
+	speechBubbleAnimation.play("disappear")
+	
+func interactedWith():
+	print("bazinga")
 
