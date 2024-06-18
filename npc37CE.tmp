@@ -175,7 +175,6 @@ shape = SubResource("CapsuleShape3D_elw84")
 
 [node name="interactableBox" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 3, 0)
-shaded = true
 sprite_frames = SubResource("SpriteFrames_re5d6")
 animation = &"disappear"
 

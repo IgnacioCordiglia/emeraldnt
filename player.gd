@@ -1,13 +1,23 @@
 extends CharacterBody3D
 
 @export var animationFrame = 0
-
 var SPEED
 var direction
 var facing = 0
+var inRangeToInteractWith : detectableBody = null
+@onready var raycast : RayCast3D = $RayCast3D
 
 func _physics_process(delta):
 	var isRunning
+	
+	print(raycast.get_collider())
+	if raycast.is_colliding():
+		inRangeToInteractWith = raycast.get_collider()
+		inInteractionRange(inRangeToInteractWith)
+	elif !raycast.is_colliding() && inRangeToInteractWith != null:
+		noLongerInInteractionRange()
+		
+		
 	if Input.is_action_pressed("running"):
 		SPEED = 18.0
 		isRunning = 1
@@ -29,6 +39,13 @@ func _physics_process(delta):
 	handle_movement_animation(directionV2, isRunning)
 	move_and_slide()
 
+
+func inInteractionRange(collider : detectableBody) :
+	collider.inRangeToInteract()
+	
+func noLongerInInteractionRange() :
+	inRangeToInteractWith.noLongerInRange()
+	inRangeToInteractWith = null
 
 func handle_movement_animation(direction, running):
 	

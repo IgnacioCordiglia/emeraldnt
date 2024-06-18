@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name interactableNPC
+
 enum {
 	IDLE,
 	NEW_DIR,
@@ -58,35 +60,41 @@ func choose(array):
 	array.shuffle()
 	return array.front()
 	
-func handleIdleAnimation(dir):
-	match dir:
+func handleIdleAnimation(dire):
+	match dire:
 		Vector3.LEFT:
-			$AnimatedSprite3D.play("idleSideways")
-			$AnimatedSprite3D.flip_h = false
+			$body.play("idleSideways")
+			$body.flip_h = false
 		Vector3.RIGHT:
-			$AnimatedSprite3D.play("idleSideways")
-			$AnimatedSprite3D.flip_h = true
+			$body.play("idleSideways")
+			$body.flip_h = true
 		Vector3.BACK:
-			$AnimatedSprite3D.play("idle")
+			$body.play("idle")
 		Vector3.FORWARD:
-			$AnimatedSprite3D.play("idleBackwards")
+			$body.play("idleBackwards")
 
-func handleWalkingAnimation(dir):
-	match dir:
+func handleWalkingAnimation(dire):
+	match dire:
 		Vector3.LEFT:
-			$AnimatedSprite3D.play("walkSideways")
-			$AnimatedSprite3D.flip_h = false
+			$body.play("walkSideways")
+			$body.flip_h = false
 		Vector3.RIGHT:
-			$AnimatedSprite3D.play("walkSideways")
-			$AnimatedSprite3D.flip_h = true
+			$body.play("walkSideways")
+			$body.flip_h = true
 		Vector3.BACK:
-			$AnimatedSprite3D.play("walk")
+			$body.play("walk")
 		Vector3.FORWARD:
-			$AnimatedSprite3D.play("walkBackwards")
+			$body.play("walkBackwards")
 
 func _on_timer_timeout():
 	$Timer.wait_time = 1
 	currentState = choose([IDLE, NEW_DIR, MOVE])
 	
-func interaction():
-	$DialogueBox.
+	
+func inRangeToInteract():
+	$interactableBox.visible = true
+	$interactableBox.play("appear")
+	
+func noLongerInRange():
+	$interactableBox.visible = false
+
