@@ -60,7 +60,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_wawrj"]
 size = Vector3(4.55987, 6.08051, 6.09027)
 
-[node name="LittlerootTown" type="CanvasLayer"]
+[node name="Littleroot Town" type="CanvasLayer"]
 script = ExtResource("1_8jpg0")
 dialogueJson = ExtResource("2_n0em1")
 

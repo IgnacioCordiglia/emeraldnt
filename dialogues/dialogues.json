@@ -1,1 +1,12 @@
-[{"commands_raw":"lorem\nipsum","gnode_name":"pc guy npc text","id":0,"name":"PC guy NPC text","position":[-280,-260]}]
+[
+	{
+		"commands_raw": "If you use a PC, you can store items \nand POKéMON",
+		"gnode_name": "pcguytext1",
+		"id": 0,
+		"name": "pcGuyText1",
+		"position": [
+			0,
+			0
+		]
+	}
+]

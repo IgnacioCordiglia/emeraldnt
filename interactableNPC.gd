@@ -98,7 +98,7 @@ func inRangeToInteract():
 	
 func noLongerInRange():
 	speechBubbleAnimation.play("disappear")
-	
+		
 func interactedWith():
-	print("bazinga")
+	print("")
 

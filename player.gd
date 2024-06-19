@@ -75,5 +75,6 @@ func noLongerInInteractionRange() :
 	bodyInRangeToInteractWith.noLongerInRange()
 	bodyInRangeToInteractWith = null
 	
+@onready var main : main = $LittlerootTown 
 func interact(collider : detectableBody):
-	collider.interactedWith()
+	main.dialogueBoxRequested()
