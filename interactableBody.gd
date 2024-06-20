@@ -11,5 +11,5 @@ func noLongerInRange():
 	nodo.noLongerInRange()
 	
 func interactedWith():
-	nodo.interactedWith()
+	return nodo.interactedWith()
 

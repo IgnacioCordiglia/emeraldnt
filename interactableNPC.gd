@@ -5,7 +5,8 @@ class_name interactableNPC
 enum {
 	IDLE,
 	NEW_DIR,
-	MOVE
+	MOVE,
+	TALK
 }
 
 const speed = 3
@@ -33,6 +34,8 @@ func  _physics_process(delta):
 			if movement == true:
 				handleWalkingAnimation(dir)
 			else: currentState = IDLE
+		TALK:
+			currentState = IDLE
 
 func move(delta):
 	var validMovement = true
@@ -100,5 +103,7 @@ func noLongerInRange():
 	speechBubbleAnimation.play("disappear")
 		
 func interactedWith():
-	print("")
+	currentState = TALK
+	$Timer.set_paused(true)
+	return "pcGuyText1"
 

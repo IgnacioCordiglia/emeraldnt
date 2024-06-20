@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bcvmqukhyr0pj" path="res://textbox.tscn" id="4_1ur6m"]
 [ext_resource type="MeshLibrary" uid="uid://ymmnyrtn4q65" path="res://grassLittleroot.tres" id="4_asnur"]
 [ext_resource type="PackedScene" uid="uid://biavbj0bg1vxm" path="res://assets/models/littleroot_house.glb" id="4_nsyed"]
-[ext_resource type="Script" path="res://textbox.gd" id="5_bd7ei"]
 [ext_resource type="PackedScene" uid="uid://fnye7t7yxe02" path="res://flower.tscn" id="5_tr8j4"]
 [ext_resource type="PackedScene" uid="uid://dldwj6mk3h8d3" path="res://tree.tscn" id="6_r1qnb"]
 [ext_resource type="PackedScene" uid="uid://3slu4glsqqk5" path="res://npc_guy.tscn" id="7_i8tfv"]
+[ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="11_t0x65"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nikc2"]
 radius = 0.937973
@@ -65,32 +65,32 @@ script = ExtResource("1_8jpg0")
 dialogueJson = ExtResource("2_n0em1")
 
 [node name="UIContainer" type="SubViewportContainer" parent="."]
-offset_top = 755.0
-offset_right = 1980.0
-offset_bottom = 1267.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1080.0
+offset_right = 60.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
 
 [node name="dialogueViewport" type="SubViewport" parent="UIContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1980, 512)
-size_2d_override = Vector2i(0, 500)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="Container" type="Container" parent="UIContainer/dialogueViewport"]
+[node name="dialogueBoxContainer" type="Container" parent="UIContainer/dialogueViewport"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -500.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="textbox" parent="UIContainer/dialogueViewport/Container" instance=ExtResource("4_1ur6m")]
+[node name="textbox" parent="UIContainer/dialogueViewport/dialogueBoxContainer" instance=ExtResource("4_1ur6m")]
 texture_filter = 1
-layout_mode = 2
-
-[node name="background" type="Control" parent="UIContainer/dialogueViewport/Container"]
-modulate = Color(1, 0, 1, 1)
 layout_mode = 2
 
 [node name="player" type="CharacterBody3D" parent="."]
@@ -151,7 +151,6 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="flowers" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.116, 2.2, 3.617)
-script = ExtResource("5_bd7ei")
 
 [node name="flower" parent="flowers" instance=ExtResource("5_tr8j4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.884, -1.7, -2.617)
@@ -312,3 +311,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
 
 [node name="NPC_guy" parent="." instance=ExtResource("7_i8tfv")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 16, 1.25, 4.975)
+
+[node name="EzDialogue" type="Node" parent="."]
+script = ExtResource("11_t0x65")
+
+[connection signal="dialogue_generated" from="EzDialogue" to="." method="_on_ez_dialogue_dialogue_generated"]
