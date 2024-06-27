@@ -11,7 +11,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -1080.0
-offset_bottom = 326.0
+offset_bottom = -755.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_atm8j")
@@ -22,8 +22,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -651.0
-offset_bottom = -326.0
+offset_top = -325.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -49,13 +48,6 @@ theme_override_fonts/font = ExtResource("2_3cu8k")
 theme_override_font_sizes/font_size = 128
 text = "if you use a PC, you can store items
 "
-
-[node name="Panel" type="Panel" parent="."]
-z_index = -1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.998438
-anchor_bottom = 0.763158
 
 [node name="letterDisplayTimer" type="Timer" parent="."]
 one_shot = true

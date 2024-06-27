@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=3 format=3 uid="uid://5uoqp5syx0pk"]
+
+[ext_resource type="PackedScene" uid="uid://cqpb3ie51rwl5" path="res://dialogues/CustomDialogPortrait/custom_dialog_portrait.tscn" id="1_2lcml"]
+[ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style.gd" id="10_dvtig"]
+
+[resource]
+script = ExtResource("10_dvtig")
+name = "dialogPortrait"
+base_scene = ExtResource("1_2lcml")
+base_overrides = {}
+layers = Array[Resource("res://addons/dialogic/Resources/dialogic_style_layer.gd")]([])
+metadata/_latest_layer = -1

@@ -222,9 +222,6 @@ animations = [{
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46973, 0)
 script = ExtResource("1_ndmvo")
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [node name="body" type="AnimatedSprite3D" parent="."]
 gi_mode = 2
 billboard = 1
@@ -247,5 +244,3 @@ shaded = true
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_re5d6")
 animation = &"appear"
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
