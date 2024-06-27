@@ -8,20 +8,42 @@ var textbox
 var isDialogueActive = false
 var canAdvanceLine = false
 
+signal interactionFinished()
+
 func startDialogue(lines: Array[String]):
 	if isDialogueActive:
 		return
-		
+	
 	dialogueLines = lines
-	
-	showTextBox()
-	
+	showTextbox()
 	isDialogueActive = true
 	
 	
-func showTextBox():
+func showTextbox():
 	textbox = textBoxScene.instantiate()
-	textbox.finished_displaying.connect(onTextBoxFinishedDisplaying)
+	textbox.finishedDisplaying.connect(onTextBoxFinishedDisplaying)
 	get_tree().root.add_child(textbox)
+	textbox.displayText(dialogueLines[currentLineIndex])
+	canAdvanceLine = false
 	
+func onTextBoxFinishedDisplaying():
+	canAdvanceLine = true
 	
+func _unhandled_input(event):
+	
+	if (
+		event.is_action_pressed("advanceDialogue") && isDialogueActive && canAdvanceLine
+	):
+		textbox.queue_free()
+		
+
+		currentLineIndex += 1
+	
+		if currentLineIndex >= dialogueLines.size():
+			isDialogueActive = false
+			currentLineIndex = 0
+			interactionFinished.emit()
+			return
+		
+		showTextbox()
+

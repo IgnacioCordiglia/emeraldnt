@@ -33,7 +33,7 @@ texture = ExtResource("2_ab3pb")
 
 [node name="textbox" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 8
 theme_override_constants/margin_left = 128
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 128
@@ -48,7 +48,7 @@ theme_override_constants/shadow_offset_y = 8
 theme_override_fonts/font = ExtResource("2_3cu8k")
 theme_override_font_sizes/font_size = 128
 text = "if you use a PC, you can store items
-"
+and Pokemon"
 
 [node name="Panel" type="Panel" parent="."]
 z_index = -1

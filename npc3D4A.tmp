@@ -232,7 +232,7 @@ shaded = true
 alpha_cut = 2
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_db5ww")
-animation = &"walkBackwards"
+animation = &"idleSideways"
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="body"]
 script = ExtResource("3_37xxb")

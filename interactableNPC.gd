@@ -9,10 +9,17 @@ enum {
 	TALK
 }
 
+const lines : Array[String] = [
+	"If you use a PC, you can store items 
+	and POKéMON",
+	"The power of science is staggering!"
+]
+
 const speed = 3
 var currentState = IDLE
 var dir = Vector3.FORWARD
 var startPos
+var interactable = false
 @onready var characterAnimations : AnimatedSprite3D = $body
 @onready var speechBubbleAnimation : AnimatedSprite3D = $interactableBox
 
@@ -74,6 +81,7 @@ func handleIdleAnimation(dire):
 			characterAnimations.play("idleSideways")
 			characterAnimations.flip_h = true
 		Vector3.BACK:
+			print("bro is playing the back animation")
 			characterAnimations.play("idle")
 		Vector3.FORWARD:
 			characterAnimations.play("idleBackwards")
@@ -96,14 +104,39 @@ func _on_timer_timeout():
 	currentState = choose([IDLE, NEW_DIR, MOVE])
 	
 func inRangeToInteract():
+	interactable = true
 	speechBubbleAnimation.visible = true
 	speechBubbleAnimation.play("appear")
 	
 func noLongerInRange():
+	interactable = false
 	speechBubbleAnimation.play("disappear")
 		
-func interactedWith():
-	currentState = TALK
-	$Timer.set_paused(true)
-	return "pcGuyText1"
-
+func interactedWith(facing):
+	if interactable:
+		currentState = TALK
+		interactable = false
+		handleFacingPlayer(facing)
+		DialogueManager.startDialogue(lines)
+		DialogueManager.interactionFinished.connect(onInteractionFinished)
+		$Timer.stop()
+		
+		
+		
+func onInteractionFinished():
+	$Timer.start()
+	currentState = IDLE
+	
+func handleFacingPlayer(facing):
+	print(facing)
+	match facing:
+		0:
+			print("bro should be looking backwards")
+			dir = Vector3.FORWARD
+		1:
+			dir = Vector3.RIGHT
+		2:
+			dir = Vector3.BACK
+		3:
+			dir = Vector3.LEFT
+			

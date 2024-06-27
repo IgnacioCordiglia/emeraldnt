@@ -10,6 +10,6 @@ func inRangeToInteract():
 func noLongerInRange():
 	nodo.noLongerInRange()
 	
-func interactedWith():
-	return nodo.interactedWith()
+func interactedWith(facing):
+	return nodo.interactedWith(facing)
 
