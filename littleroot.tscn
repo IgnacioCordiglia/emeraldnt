@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcmuxd7k1emms"]
+[gd_scene load_steps=18 format=3 uid="uid://bcmuxd7k1emms"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_tlltn"]
 [ext_resource type="Texture2D" uid="uid://cto8gep0tvya5" path="res://assets/Ethan spritesheet.png" id="2_tbw4s"]
+[ext_resource type="AudioStream" uid="uid://cjvihsd7nt6pd" path="res://assets/sounds/footstepsWalking.mp3" id="3_ignyy"]
+[ext_resource type="AudioStream" uid="uid://b45ahh72m5isi" path="res://assets/sounds/footstepsRunning.mp3" id="4_301ye"]
 [ext_resource type="MeshLibrary" uid="uid://ymmnyrtn4q65" path="res://grassLittleroot.tres" id="4_asnur"]
 [ext_resource type="PackedScene" uid="uid://biavbj0bg1vxm" path="res://assets/models/littleroot_house.glb" id="4_nsyed"]
 [ext_resource type="PackedScene" uid="uid://fnye7t7yxe02" path="res://flower.tscn" id="5_tr8j4"]
 [ext_resource type="PackedScene" uid="uid://dldwj6mk3h8d3" path="res://tree.tscn" id="6_r1qnb"]
 [ext_resource type="PackedScene" uid="uid://3slu4glsqqk5" path="res://npc_guy.tscn" id="7_i8tfv"]
+[ext_resource type="AudioStream" uid="uid://c6n43q2gklrhl" path="res://assets/sounds/littlerootTown.wav" id="8_wncal"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nikc2"]
 radius = 0.937973
@@ -28,6 +31,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 1]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"playRunningSound"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_va0ao"]
 resource_name = "walk"
@@ -46,6 +63,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 1]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"playWalkingSound"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0srw0"]
 _data = {
@@ -56,6 +87,14 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_wawrj"]
 size = Vector3(4.55987, 6.08051, 6.09027)
 
+[sub_resource type="Environment" id="Environment_t1o2q"]
+background_mode = 3
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+sdfgi_enabled = true
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_80drj"]
+
 [node name="LittlerootTown" type="CanvasLayer"]
 
 [node name="player" type="CharacterBody3D" parent="."]
@@ -63,7 +102,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_tlltn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.095)
+transform = Transform3D(1.2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.095)
 shape = SubResource("CapsuleShape3D_nikc2")
 
 [node name="pivotCamera" type="Node3D" parent="player"]
@@ -98,9 +137,27 @@ target_position = Vector3(2, 0, 0)
 debug_shape_custom_color = Color(0.516148, 0.711465, 0.673299, 1)
 debug_shape_thickness = 3
 
+[node name="playerSounds" type="Node3D" parent="player"]
+
+[node name="walkingSound" type="AudioStreamPlayer3D" parent="player/playerSounds"]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -30, -0.531313, 10)
+stream = ExtResource("3_ignyy")
+volume_db = 80.0
+unit_size = 82.55
+max_distance = 11.5
+emission_angle_filter_attenuation_db = 0.0
+
+[node name="runningSound" type="AudioStreamPlayer3D" parent="player/playerSounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.41059, 4)
+stream = ExtResource("4_301ye")
+volume_db = 80.0
+unit_size = 80.75
+max_distance = 10.6
+emission_angle_filter_attenuation_db = 0.0
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866025, -0.5, 0, 0.433013, 0.75, 0.5, -0.25, -0.433013, 0.866026, 0, 15, 10)
-light_energy = 0.67
+light_volumetric_fog_energy = 5.21
 shadow_enabled = true
 shadow_bias = 0.05
 shadow_reverse_cull_face = true
@@ -277,3 +334,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 0)
 
 [node name="NPC_guy" parent="." instance=ExtResource("7_i8tfv")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 16, 1.25, 4.975)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t1o2q")
+camera_attributes = SubResource("CameraAttributesPhysical_80drj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_wncal")
+volume_db = -20.24
+autoplay = true

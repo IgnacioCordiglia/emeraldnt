@@ -8,6 +8,8 @@ var facing = 0
 var canInteract : bool = false
 var bodyInRangeToInteractWith : detectableBody = null
 @onready var raycast : RayCast3D = $RayCast3D
+@onready var walkingSound : AudioStreamPlayer3D = $playerSounds/walkingSound
+@onready var runningSound : AudioStreamPlayer3D = $playerSounds/runningSound
 
 enum {
 	DOWN = 0,
@@ -87,6 +89,14 @@ func handle_movement_animation(direction, running):
 	
 func inInteractionRange(collider : detectableBody) :
 	collider.inRangeToInteract()
+	
+func playRunningSound():
+	runningSound.pitch_scale = randf_range(0.8, 1.2)
+	runningSound.play()
+	
+func playWalkingSound():
+	walkingSound.pitch_scale = randf_range(0.8, 1.2)
+	walkingSound.play()
 	
 func noLongerInInteractionRange() :
 	bodyInRangeToInteractWith.noLongerInRange()
