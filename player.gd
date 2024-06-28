@@ -30,10 +30,10 @@ func _physics_process(delta):
 		interact(bodyInRangeToInteractWith)
 		
 	if Input.is_action_pressed("running"):
-		SPEED = 18.0
+		SPEED = 12.0
 		isRunning = 1
 	else: 
-		SPEED = 10.0 
+		SPEED = 7.0 
 		isRunning = 0
 	
 	var direction
@@ -96,9 +96,10 @@ func interact(collider : detectableBody):
 	collider.interactedWith(facing)
 	canMove = false
 	canInteract = false
-	DialogueManager.interactionFinished.connect(onInteractionFinished)
+	Dialogic.signal_event.connect(newDialogicSignal)
 
-func onInteractionFinished():
+func newDialogicSignal(arg: String):
+	Dialogic.signal_event.disconnect(newDialogicSignal)
 	canMove = true
 	canInteract = true
 	

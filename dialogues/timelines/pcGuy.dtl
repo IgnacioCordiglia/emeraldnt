@@ -1,3 +1,5 @@
-join pcGuy left
-pcGuy: something something PCs blah blah blah
-pcGuy: I hope this works lmao
+join pcGuy left [animation="Fade In Up"]
+pcGuy: If you use a PC, you can store items\
+and POKeMON
+pcGuy: science science blah blah blah
+[signal arg="endDialogue"]

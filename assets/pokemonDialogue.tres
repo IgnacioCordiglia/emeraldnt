@@ -35,7 +35,13 @@ script = ExtResource("2_yi3o2")
 scene = ExtResource("5_mikna")
 overrides = {
 "box_size": "Vector2(1820, 320)",
-"name_label_custom_font_size": "96.0"
+"name_label_custom_color": "Color(0, 0, 0, 1)",
+"name_label_custom_font_size": "96.0",
+"name_label_use_character_color": "false",
+"name_label_use_global_color": "false",
+"name_label_use_global_font_size": "false",
+"typing_sounds_enabled": "false",
+"typing_sounds_end_sound": "\"res://assets/sounds/AButtonSound.wav\""
 }
 
 [sub_resource type="Resource" id="Resource_m7scj"]
@@ -64,8 +70,8 @@ name = "pokemonDialogue"
 base_overrides = {
 "global_bg_color": "Color(0, 0, 0, 0)",
 "global_font": "\"res://assets/font/pokemon-emerald.ttf\"",
-"global_font_color": "Color(0.0507813, 0.0507813, 0.0507813, 1)",
-"global_font_size": "64.0"
+"global_font_color": "Color(0.384314, 0.384314, 0.388235, 1)",
+"global_font_size": "128.0"
 }
 layers = Array[ExtResource("2_yi3o2")]([SubResource("Resource_pv7i8"), SubResource("Resource_exv0d"), SubResource("Resource_4uou6"), SubResource("Resource_vi5ud"), SubResource("Resource_m7scj"), SubResource("Resource_j85vw"), SubResource("Resource_4marm"), SubResource("Resource_xiu2l")])
-metadata/_latest_layer = 3
+metadata/_latest_layer = 7

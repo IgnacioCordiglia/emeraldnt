@@ -9,12 +9,6 @@ enum {
 	TALK
 }
 
-const lines : Array[String] = [
-	"If you use a PC, you can store items 
-	and POKéMON",
-	"The power of science is staggering!"
-]
-
 const speed = 3
 var currentState = IDLE
 var dir = Vector3.FORWARD
@@ -26,6 +20,7 @@ var interactable = false
 func _ready():
 	randomize()
 	startPos = position
+	Dialogic.signal_event.connect(newDialogicSignal)
 
 func  _physics_process(delta):
 	
@@ -114,16 +109,16 @@ func noLongerInRange():
 		
 func interactedWith(facing):
 	if interactable:
+		Dialogic.timeline_ended.connect(newDialogicSignal)
 		currentState = TALK
 		interactable = false
 		handleFacingPlayer(facing)
-		DialogueManager.startDialogue(lines)
-		DialogueManager.interactionFinished.connect(onInteractionFinished)
+		Dialogic.start("pcGuy")
 		$Timer.stop()
 		
 		
-		
-func onInteractionFinished():
+func newDialogicSignal(arg: String):
+	Dialogic.timeline_ended.disconnect(newDialogicSignal)
 	$Timer.start()
 	currentState = IDLE
 	
