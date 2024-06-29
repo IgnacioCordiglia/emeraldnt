@@ -22,10 +22,13 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"characters/pcGuy": "res://dialogues/characters/pcGuy.dch",
+"littleGirl": "res://dialogues/characters/littleGirl.dch",
 "pcGuy": "res://dialogues/pcGuy.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
+"littleGirl": "res://assets/dialoguePortraits/littleGirl.dtl",
 "pcGuy": "res://dialogues/timelines/pcGuy.dtl"
 }
 layout/style_list=["res://assets/pokemonDialogue.tres"]

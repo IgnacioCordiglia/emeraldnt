@@ -23,7 +23,6 @@ func _ready():
 	Dialogic.signal_event.connect(newDialogicSignal)
 
 func  _physics_process(delta):
-	
 	match currentState:
 		IDLE:
 			handleIdleAnimation(dir)
@@ -113,7 +112,7 @@ func interactedWith(facing):
 		currentState = TALK
 		interactable = false
 		handleFacingPlayer(facing)
-		Dialogic.start("pcGuy")
+		Dialogic.start(str(name))
 		$Timer.stop()
 		
 		

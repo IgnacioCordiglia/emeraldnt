@@ -6,25 +6,24 @@
 "custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "pokemonDialogue"
+"style": ""
 },
-"default_portrait": "collector1",
+"default_portrait": "littleGirl1",
 "description": "",
-"display_name": "Collector",
+"display_name": "Little Girl",
 "mirror": false,
 "nicknames": [""],
-"offset": Vector2(-100, -200),
-"portraits": {
-"collector1": {
-"export_overrides": {
-"image": "\"res://assets/dialoguePortraits/collector1.png\""
-},
-"ignore_char_scale": false,
-"mirror": true,
 "offset": Vector2(0, 0),
-"scale": 1,
+"portraits": {
+"littleGirl1": {
+"export_overrides": {
+"image": "\"res://assets/dialoguePortraits/littleGirl1.png\""
+},
+"mirror": true,
+"offset": Vector2(-100, -200),
+"scale": 1.0,
 "scene": ""
 }
 },
-"scale": 3.0
+"scale": 1.0
 }

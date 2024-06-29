@@ -1,0 +1,3 @@
+join littleGirl left [animation="Fade In Up"]
+littleGirl: bazingattack!!
+[signal arg="endDialogue"]

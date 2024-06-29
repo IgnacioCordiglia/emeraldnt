@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DialogicStyle" load_steps=19 format=3 uid="uid://co1gpp00su71o"]
 
-[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="1_tdmut"]
+[ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://dialogues/FullBackground/custom_full_background_layer.tscn" id="1_tdmut"]
 [ext_resource type="Script" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_yi3o2"]
 [ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="3_xhxef"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="4_ppph1"]
@@ -71,7 +71,7 @@ base_overrides = {
 "global_bg_color": "Color(0, 0, 0, 0)",
 "global_font": "\"res://assets/font/pokemon-emerald.ttf\"",
 "global_font_color": "Color(0.384314, 0.384314, 0.388235, 1)",
-"global_font_size": "128.0"
+"global_font_size": "116.0"
 }
 layers = Array[ExtResource("2_yi3o2")]([SubResource("Resource_pv7i8"), SubResource("Resource_exv0d"), SubResource("Resource_4uou6"), SubResource("Resource_vi5ud"), SubResource("Resource_m7scj"), SubResource("Resource_j85vw"), SubResource("Resource_4marm"), SubResource("Resource_xiu2l")])
-metadata/_latest_layer = 7
+metadata/_latest_layer = -1

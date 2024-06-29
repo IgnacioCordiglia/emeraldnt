@@ -218,7 +218,7 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="NPC_guy" type="Node3D"]
+[node name="pcGuy" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46973, 0)
 script = ExtResource("1_ndmvo")
 

@@ -1,5 +1,5 @@
 join pcGuy left [animation="Fade In Up"]
 pcGuy: If you use a PC, you can store items\
 and POKéMON
-pcGuy: 	The power of science is staggering!
+pcGuy: The power of science is staggering!
 [signal arg="endDialogue"]
